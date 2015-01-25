@@ -6,9 +6,16 @@ DISABLE_LS_COLORS="true"
 plugins=(git bundler brew gem rbates)
 
 export PATH="/usr/local/bin:$PATH"
-export EDITOR='mate -w'
+export EDITOR='vim'
 
 source $ZSH/oh-my-zsh.sh
 
-# for Homebrew installed rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+
+export NODE_PATH="$HOME/.npm/lib/node_modules"
+export PATH="$PATH:$HOME/.npm/bin"
+
+export N_PREFIX="$HOME/.npm"
+
