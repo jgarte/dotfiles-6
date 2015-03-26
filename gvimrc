@@ -1,7 +1,13 @@
 set guioptions-=T " hide toolbar
-set lines=55 columns=100
+set encoding=utf-8
+set lines=55 columns=200
+
+set cursorline
+set cursorcolumn
+hi CursorLine guibg=#222222
+hi CursorColumn guibg=#222222
 
 colorscheme Tomorrow-Night
 
-set guifont=Input\ Mono\ Light\ 12
-set linespace=4
+set guifont=Sauce\ Code\ Powerline\ ExtraLight:h14
+set linespace=3

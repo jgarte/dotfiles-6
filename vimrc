@@ -14,9 +14,22 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-endwise'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'bling/vim-airline'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'shime/vim-livedown'
+Plugin 'evanmiller/nginx-vim-syntax'
+Plugin 'msanders/snipmate.vim'
+Plugin 'elzr/vim-json'
+Plugin 'Keithbsmiley/swift.vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,8 +56,6 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-execute pathogen#infect()
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -244,9 +255,9 @@ function! OpenURL()
   let s:uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;:]*')
   echo s:uri
   if s:uri != ""
-	  exec "!open \"" . s:uri . "\""
+    exec "!open \"" . s:uri . "\""
   else
-	  echo "No URI found in line."
+    echo "No URI found in line."
   endif
 endfunction
 map <Leader>w :call OpenURL()<CR>
@@ -255,4 +266,8 @@ let g:syntastic_javascript_checkers = ['jshint']
 
 " Give a shortcut key to NERD Tree
 nmap tt :NERDTreeToggle<CR>
+
+" vim-airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
 
