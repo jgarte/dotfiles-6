@@ -30,6 +30,11 @@ Plugin 'msanders/snipmate.vim'
 Plugin 'elzr/vim-json'
 Plugin 'Keithbsmiley/swift.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'rust-lang/rust.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'isRuslan/vim-es6'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -221,11 +226,6 @@ if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --ignore-dir=tmp\ --ignore-dir=coverage
 endif
 
-" Color scheme
-" colorscheme vividchalk
-" highlight NonText guibg=#060606
-" highlight Folded  guibg=#0A0A0A guifg=#9090D0
-
 " Numbers
 set number
 set numberwidth=5
@@ -262,8 +262,6 @@ function! OpenURL()
 endfunction
 map <Leader>w :call OpenURL()<CR>
 
-let g:syntastic_javascript_checkers = ['jshint']
-
 " Give a shortcut key to NERD Tree
 nmap tt :NERDTreeToggle<CR>
 
@@ -271,3 +269,4 @@ nmap tt :NERDTreeToggle<CR>
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
+let g:vim_json_syntax_conceal = 0
