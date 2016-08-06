@@ -31,6 +31,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -38,23 +40,15 @@ Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
 " Don't save .swap files, they're annoying
 set nobackup
 set noswapfile
 set nowritebackup
 
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
+" Switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
   colorscheme Tomorrow-Night-Eighties
   set hlsearch
 endif
@@ -74,47 +68,28 @@ function! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-" Only do this part when compiled with support for autocommands.
 if has("autocmd")
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
   " Set File type to 'text' for files ending in .txt
   autocmd BufNewFile,BufRead *.txt setfiletype text
 
   " Enable soft-wrapping for text files
   autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
-  " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  au!
+    au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  " autocmd FileType text setlocal textwidth=78
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  " Automatically load .vimrc source when saved
-  autocmd BufWritePost .vimrc source $MYVIMRC
-
-  " Strip unwanted whitespace on save
-  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+    " Strip unwanted whitespace on save
+    autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
   augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Softtabs, 2 spaces
@@ -122,48 +97,16 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set smarttab
-
-" Always display the status line
-set laststatus=2
 
 " \ is the leader character
-let mapleader = ","
-
-" Hide search highlighting
-map <Leader>h :set invhls <CR>
-
-" Duplicate a selection
-" Visual mode: D
-vmap D y'>p
-
-" Press Shift+P while in visual mode to replace the selection without
-" overwriting the default register
-vmap P p :call setreg('"', getreg('0')) <CR>
+let mapleader = "\\"
 
 " No Help, please
 nmap <F1> <Esc>
 
-" Display extra whitespace
-set list listchars=tab:»·,trail:·
-
-" Local config
-if filereadable(".vimrc.local")
-  source .vimrc.local
-endif
-
 " Numbers
 set number
 set numberwidth=5
-
-" Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
-
-" Tab completion options
-" (only complete to the longest unambiguous match, and show a menu)
-set completeopt=longest,menu
-set wildmode=list:longest,list:full
-set complete=.,t
 
 " case only matters with mixed case expressions
 set ignorecase
@@ -173,8 +116,6 @@ set smartcase
 let g:Tlist_Ctags_Cmd="ctags"
 set tags=./tags;
 
-let g:fuf_splitPathMatching=1
-
 " Give a shortcut key to NERD Tree
 nmap tt :NERDTreeToggle<CR>
 
@@ -182,8 +123,10 @@ nmap tt :NERDTreeToggle<CR>
 set laststatus=2
 let g:airline_powerline_fonts = 1
 
+" vim json
 let g:vim_json_syntax_conceal = 0
 
+" syntastic
 let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
