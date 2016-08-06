@@ -3,3 +3,6 @@
 *~
 .*.swp
 nohup.out
+tags
+npm-debug.log
+!.gitkeep
