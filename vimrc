@@ -14,20 +14,14 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Keithbsmiley/swift.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'elzr/vim-json'
-Plugin 'evanmiller/nginx-vim-syntax'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'gavocanov/vim-js-indent'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rking/ag.vim'
-Plugin 'rust-lang/rust.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-abolish'
@@ -49,7 +43,7 @@ set showcmd		" display incomplete commands
 
 " Switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  colorscheme Tomorrow-Night-Eighties
+  colorscheme solarized
   set hlsearch
 endif
 
