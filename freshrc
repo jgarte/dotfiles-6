@@ -21,4 +21,6 @@ fresh config/secrets.sh
 fresh config/utils.sh
 fresh config/zsh.sh
 
+fresh gitignore --file
+fresh gitconfig --file
 fresh vimrc --file

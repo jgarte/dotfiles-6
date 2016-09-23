@@ -1,0 +1,23 @@
+[user]
+  name = Brad Parker
+  email = hi@bradparker.com
+[alias]
+  co = checkout
+  b = branch
+  s = status
+  p = pull
+  a = add
+  c = commit
+  ps = push
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[core]
+  excludesfile = /Users/bradparker/.gitignore
+  editor = vim
+  autocrlf = input
+[apply]
+  whitespace = nowarn
+[format]
+  pretty = %C(yellow)%h%Creset %s %C(red)(%an, %cr)%Creset
