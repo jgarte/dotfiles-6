@@ -15,8 +15,6 @@ fresh config/aliases.sh
 fresh config/dinghy.sh
 fresh config/direnv.sh
 fresh config/path.sh
-fresh config/node.sh
-fresh config/ruby.sh
 fresh config/secrets.sh
 fresh config/zsh.sh
 
