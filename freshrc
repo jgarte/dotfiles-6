@@ -18,7 +18,6 @@ fresh config/path.sh
 fresh config/node.sh
 fresh config/ruby.sh
 fresh config/secrets.sh
-fresh config/utils.sh
 fresh config/zsh.sh
 
 fresh gitignore --file
