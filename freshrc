@@ -12,7 +12,6 @@ fresh freshshell/fresh bin/fresh --bin
 
 fresh config/editor.sh
 fresh config/aliases.sh
-fresh config/dinghy.sh
 fresh config/direnv.sh
 fresh config/path.sh
 fresh config/secrets.sh
