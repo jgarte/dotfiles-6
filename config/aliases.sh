@@ -1,6 +1,7 @@
-alias vim="nvim"
-alias reload=". ~/.zshrc"
+alias reload=". ~/.bashrc"
 
+alias ls='ls --color=auto'
+alias l='ls -al'
+alias ll='ls -l'
 alias dc=docker-compose
-alias dm=docker-machine
 alias g=git
