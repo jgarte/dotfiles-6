@@ -24,3 +24,4 @@ fresh config/nix.sh
 fresh gitignore --file
 fresh gitconfig --file
 fresh vimrc --file
+fresh tmux.conf --file
