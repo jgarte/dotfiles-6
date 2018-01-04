@@ -9,6 +9,7 @@
   a = add
   c = commit
   ps = push
+  lsc = diff-tree --no-commit-id --name-only -r
 [color]
   diff = auto
   status = auto
