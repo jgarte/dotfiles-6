@@ -21,6 +21,7 @@ fresh config/direnv.sh
 fresh config/path.sh
 fresh config/nix.sh
 
+fresh bashrc --file
 fresh gitignore --file
 fresh gitconfig --file
 fresh vimrc --file
