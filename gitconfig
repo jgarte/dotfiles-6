@@ -15,7 +15,7 @@
   status = auto
   branch = auto
 [core]
-  excludesfile = /Users/bradparker/.gitignore
+  excludesfile = ~/.gitignore
   editor = vim
   autocrlf = input
 [apply]
