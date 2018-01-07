@@ -1,7 +1,7 @@
-if ! [ command -v pbcopy >/dev/null 2>&1 ]; then
+if ! [ -x "$(command -v pbcopy)" ]; then
   alias pbcopy='xclip -selection clipboard'
 fi
 
-if ! [ command -v pbpaste >/dev/null 2>&1 ]; then
+if ! [ -x "$(command -v pbpaste)" ]; then
   alias pbpaste='xclip -selection clipboard -o'
 fi
