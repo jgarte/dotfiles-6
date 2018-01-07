@@ -13,7 +13,9 @@ fresh freshshell/fresh bin/fresh --bin
 fresh config/opts.sh
 fresh config/history.sh
 fresh config/clipboard.sh
+fresh config/coreutils.sh
 fresh config/prompt.sh
+fresh config/plain.sh
 fresh config/title.sh
 fresh config/editor.sh
 fresh config/aliases.sh
