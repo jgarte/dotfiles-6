@@ -19,9 +19,27 @@ if [ -n "$force_color_prompt" ]; then
   fi
 fi
 
+git_dirty () {
+  local status=$(git status --porcelain 2> /dev/null)
+  if [[ "$status" != "" ]]; then
+    printf " [+]"
+  else
+    printf ""
+  fi
+}
+
+git_branch () {
+  local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  if [[ "$branch" != "" ]]; then
+    printf " [ $branch ]"
+  else
+    printf ""
+  fi
+}
+
 if [ "$color_prompt" = yes ]; then
-  PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] » '
+  PS1="\e[01;32m\u@\h\e[m:\e[01;34m\w\e[m\$(git_branch)\$(git_dirty) » "
 else
-  PS1='\u@\h:\w » '
+  PS1="\u@\h:\w \$(git_branch)\$(git_dirty) » "
 fi
 unset color_prompt force_color_prompt
