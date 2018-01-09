@@ -31,7 +31,7 @@ git_dirty () {
 git_branch () {
   local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   if [[ "$branch" != "" ]]; then
-    printf " [ $branch ]"
+    printf " [$branch]"
   else
     printf ""
   fi
