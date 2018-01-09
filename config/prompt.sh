@@ -38,7 +38,7 @@ git_branch () {
 }
 
 if [ "$color_prompt" = yes ]; then
-  PS1="\e[01;32m\u@\h\e[m:\e[01;34m\w\e[m\$(git_branch)\$(git_dirty) » "
+  PS1="\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\$(git_branch)\$(git_dirty) » "
 else
   PS1="\u@\h:\w \$(git_branch)\$(git_dirty) » "
 fi
