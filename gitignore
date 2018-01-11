@@ -6,3 +6,4 @@ nohup.out
 tags
 npm-debug.log
 !.gitkeep
+.nix-gems
