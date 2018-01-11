@@ -5,3 +5,4 @@ alias l='ls -al'
 alias ll='ls -l'
 alias dc=docker-compose
 alias g=git
+__git_complete g _git
