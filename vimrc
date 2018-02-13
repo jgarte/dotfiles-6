@@ -130,3 +130,5 @@ let g:ale_fixers = {
 \   'haskell': ['hfmt'],
 \   'elm': ['format'],
 \}
+
+let g:ale_fix_on_save = 1
