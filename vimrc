@@ -123,5 +123,10 @@ let g:vim_json_syntax_conceal = 0
 " ALE
 let g:ale_linters = {
 \   'javascript': ['standard'],
-\   'ruby': ['rubocop']
+\   'ruby': ['rubocop'],
+\}
+
+let g:ale_fixers = {
+\   'haskell': ['hfmt'],
+\   'elm': ['format'],
 \}
