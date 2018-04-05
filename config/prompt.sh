@@ -38,7 +38,7 @@ git_branch () {
 }
 
 nix_shell_status () {
-  if [[ $IN_NIX_SHELL == 1 ]]; then
+  if [ ! -z $IN_NIX_SHELL ]; then
     printf "[nix:$name]"
   else
     printf ""
