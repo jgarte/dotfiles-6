@@ -1,7 +1,7 @@
-if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-  . /usr/local/share/bash-completion/bash_completion
+if [ -f ~/.nix-profile/share/bash-completion/bash_completion ]; then
+  . ~/.nix-profile/share/bash-completion/bash_completion
 fi
 
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
+if [ -f ~/.local/share/git-completion.bash ]; then
+  . ~/.local/share/git-completion.bash
 fi
