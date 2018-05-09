@@ -18,7 +18,6 @@ fresh config/editor.sh
 fresh config/history.sh
 fresh config/nix.sh
 fresh config/nix-shell.sh
-fresh config/nvm.sh
 fresh config/opts.sh
 fresh config/path.sh
 fresh config/prompt.sh
