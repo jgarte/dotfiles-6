@@ -22,7 +22,6 @@ fresh config/nix-shell.sh
 fresh config/nvm.sh
 fresh config/opts.sh
 fresh config/path.sh
-fresh config/plain.sh
 fresh config/prompt.sh
 fresh config/title.sh
 
