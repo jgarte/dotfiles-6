@@ -15,7 +15,6 @@ fresh config/codecdpath.sh
 fresh config/completion.sh
 fresh config/coreutils.sh
 fresh config/direnv.sh
-fresh config/edhcdpath.sh
 fresh config/editor.sh
 fresh config/history.sh
 fresh config/nix.sh
