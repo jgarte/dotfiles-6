@@ -10,7 +10,6 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
-fresh config/chruby.sh
 fresh config/clipboard.sh
 fresh config/codecdpath.sh
 fresh config/completion.sh
