@@ -10,6 +10,7 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
+fresh config/aliases.sh
 fresh config/clipboard.sh
 fresh config/codecdpath.sh
 fresh config/completion.sh
@@ -22,8 +23,6 @@ fresh config/opts.sh
 fresh config/path.sh
 fresh config/prompt.sh
 fresh config/title.sh
-
-fresh config/aliases.sh
 
 fresh bashrc --file
 fresh gitignore --file
