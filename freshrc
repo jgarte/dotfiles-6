@@ -26,6 +26,7 @@ fresh config/opts.sh
 fresh config/path.sh
 fresh config/prompt.sh
 fresh config/reload.sh
+fresh config/rust.sh
 fresh config/title.sh
 
 fresh bashrc --file
