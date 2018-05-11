@@ -10,18 +10,22 @@
 
 fresh freshshell/fresh bin/fresh --bin
 
-fresh config/aliases.sh
 fresh config/clipboard.sh
 fresh config/codecdpath.sh
 fresh config/completion.sh
 fresh config/direnv.sh
+fresh config/docker-compose.sh
 fresh config/editor.sh
+fresh config/fuzzy-cd.sh
+fresh config/git.sh
 fresh config/history.sh
-fresh config/nix.sh
+fresh config/ls.sh
 fresh config/nix-shell.sh
+fresh config/nix.sh
 fresh config/opts.sh
 fresh config/path.sh
 fresh config/prompt.sh
+fresh config/reload.sh
 fresh config/title.sh
 
 fresh bashrc --file
