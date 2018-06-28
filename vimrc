@@ -18,6 +18,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
