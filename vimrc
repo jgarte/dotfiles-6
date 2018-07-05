@@ -45,9 +45,10 @@ set nowritebackup
 
 set showcmd		" display incomplete commands
 
+colorscheme solarized
+
 " Switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  colorscheme solarized
   set hlsearch
 endif
 
