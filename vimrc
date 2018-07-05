@@ -129,10 +129,8 @@ let g:vim_json_syntax_conceal = 0
 let g:ale_linters = {
 \   'javascript': ['standard'],
 \   'ruby': ['rubocop'],
-\   'haskell': ['ghc', 'hlint'],
+\   'haskell': ['hlint'],
 \}
-
-let g:ale_haskell_ghc_options = '-fno-code -v0 -isrc -XOverloadedStrings'
 
 let g:ale_fixers = {
 \   'haskell': ['hfmt'],
