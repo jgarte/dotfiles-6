@@ -6,8 +6,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# these are set to 100x the defaults I got on my fresh debian machine
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
