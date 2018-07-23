@@ -29,6 +29,9 @@ fresh config/reload.sh
 fresh config/rust.sh
 fresh config/title.sh
 
+fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
+fresh vim/ftplugin/haskell.vim --file=~/.vim/ftplugin/haskell.vim
+
 fresh bashrc --file
 fresh gitignore --file
 fresh gitconfig --file

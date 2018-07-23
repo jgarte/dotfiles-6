@@ -133,7 +133,6 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
-\   'haskell': ['hfmt'],
 \   'elm': ['format'],
 \   'typescript': ['prettier'],
 \}
