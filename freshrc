@@ -34,6 +34,8 @@ fresh vim/ftplugin/haskell.vim --file=~/.vim/ftplugin/haskell.vim
 
 fresh git/git contrib/completion/git-completion.bash --file=~/.local/share/git-completion.bash
 
+fresh nix/config.nix --file=~/.config/nixpkgs/config.nix
+
 fresh bashrc --file
 fresh gitignore --file
 fresh gitconfig --file
