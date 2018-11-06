@@ -32,6 +32,8 @@ fresh config/title.sh
 fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 fresh vim/ftplugin/haskell.vim --file=~/.vim/ftplugin/haskell.vim
 
+fresh git/git contrib/completion/git-completion.bash --file=~/.local/share/git-completion.bash
+
 fresh bashrc --file
 fresh gitignore --file
 fresh gitconfig --file
