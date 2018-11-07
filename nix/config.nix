@@ -13,6 +13,7 @@
         entr
         fd
         fzf
+        ghc
         git
         haskellPackages.ghcid
         haskellPackages.hindent
