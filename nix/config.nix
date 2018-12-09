@@ -10,11 +10,13 @@
         cabal2nix
         coreutils
         darcs
+        direnv
         entr
         fd
         fzf
         ghc
         git
+        gnupg1
         haskellPackages.ghcid
         haskellPackages.hindent
         hlint
