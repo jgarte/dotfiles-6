@@ -16,6 +16,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'jremmen/vim-ripgrep'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -55,22 +56,11 @@ endif
 " Switch wrap off for everything
 set nowrap
 
-function! <SID>StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
+" Configure better whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 if has("autocmd")
-  " Set File type to 'text' for files ending in .txt
-  autocmd BufNewFile,BufRead *.txt setfiletype text
-
   " Enable soft-wrapping for text files
   autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
 
@@ -85,11 +75,8 @@ if has("autocmd")
       \   exe "normal g`\"" |
       \ endif
 
-    " Strip unwanted whitespace on save
-    autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
   augroup END
-endif " has("autocmd")
+endif
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -135,6 +122,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'elm': ['format'],
 \   'typescript': ['prettier'],
+\   'javascript': ['prettier'],
 \}
 
 let g:ale_fix_on_save = 1
