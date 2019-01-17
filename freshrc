@@ -34,6 +34,9 @@ fresh vim/ftplugin/haskell.vim --file=~/.vim/ftplugin/haskell.vim
 
 fresh git/git contrib/completion/git-completion.bash --file=~/.local/share/git-completion.bash
 
+fresh chriskempson/base16-shell . --file=~/.config/base16-shell/
+fresh config/base-16.sh
+
 fresh nix/config.nix --file=~/.config/nixpkgs/config.nix
 
 fresh bashrc --file

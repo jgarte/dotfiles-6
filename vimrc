@@ -12,6 +12,7 @@ set encoding=utf-8
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -46,7 +47,11 @@ set nowritebackup
 
 set showcmd		" display incomplete commands
 
-colorscheme solarized
+" Colour scheme
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
