@@ -37,6 +37,8 @@ fresh git/git contrib/completion/git-completion.bash --file=~/.local/share/git-c
 fresh chriskempson/base16-shell . --file=~/.config/base16-shell/
 fresh config/base-16.sh
 
+fresh nicodebo/base16-fzf bash/base16-tomorrow.config
+
 fresh nix/config.nix --file=~/.config/nixpkgs/config.nix
 
 fresh bashrc --file
