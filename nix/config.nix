@@ -27,7 +27,7 @@
         ripgrep
         tmux
         tree
-        vim
+        vim_configurable
       ];
     };
   };
