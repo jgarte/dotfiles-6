@@ -29,6 +29,8 @@ fresh config/reload.sh
 fresh config/rust.sh
 fresh config/title.sh
 
+fresh config/termonad/termonad.hs --file=~/.config/termonad/termonad.hs
+
 fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 fresh vim/ftplugin/haskell.vim --file=~/.vim/ftplugin/haskell.vim
 
