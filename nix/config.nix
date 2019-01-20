@@ -28,6 +28,7 @@
         tmux
         tree
         vim_configurable
+        watch
       ];
     };
   };

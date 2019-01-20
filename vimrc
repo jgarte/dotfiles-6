@@ -30,6 +30,11 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
 
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': './install.sh'
+    \ }
+
 " If you've already got fzf on your path it looks like this just
 " creates a symlink to it. A bit weird but here we are.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -117,11 +122,29 @@ let g:airline_powerline_fonts = 1
 " vim json
 let g:vim_json_syntax_conceal = 0
 
+" Language server
+
+let g:LanguageClient_serverCommands = { 'haskell': ['hie-wrapper'] }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
+map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
+map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
+map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
+map <Leader>lb :call LanguageClient#textDocument_references()<CR>
+map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+
+hi link ALEError Error
+hi Warning term=underline cterm=underline ctermfg=Yellow gui=undercurl guisp=Gold
+hi link ALEWarning Warning
+hi link ALEInfo SpellCap
+
 " ALE
 let g:ale_linters = {
 \   'javascript': ['standard'],
 \   'ruby': ['rubocop'],
-\   'haskell': ['hlint'],
+\   'haskell': ['hlint', 'hie'],
 \}
 
 let g:ale_fixers = {
