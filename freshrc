@@ -41,6 +41,8 @@ fresh config/base-16.sh
 
 fresh nicodebo/base16-fzf bash/base16-tomorrow.config
 
+fresh tmux-plugins/tpm . --file=~/.tmux/plugins/tpm/
+
 fresh nix/config.nix --file=~/.config/nixpkgs/config.nix
 
 fresh bashrc --file
@@ -48,3 +50,8 @@ fresh gitignore --file
 fresh gitconfig --file
 fresh vimrc --file
 fresh tmux.conf --file
+
+fresh_after_build () {
+  chmod +x ~/.tmux/plugins/tpm/bindings/*
+  chmod +x ~/.tmux/plugins/tpm/bin/*
+}
