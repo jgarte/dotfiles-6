@@ -42,6 +42,10 @@
     source = builtins.fetchTarball "https://github.com/chriskempson/base16-shell/archive/master.tar.gz";
   };
 
+  home.file.".local/share/git-completion.bash" = {
+    source = "${builtins.fetchTarball "https://github.com/git/git/archive/master.tar.gz"}/contrib/completion/git-completion.bash";
+  };
+
   home.file.".bashrc".text = "
     ${builtins.readFile ./programs/bash/base-16.sh}
     ${builtins.readFile ./programs/bash/clipboard.sh}
