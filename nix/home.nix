@@ -46,6 +46,8 @@
     source = "${builtins.fetchTarball "https://github.com/git/git/archive/master.tar.gz"}/contrib/completion/git-completion.bash";
   };
 
+  home.file.".config/termonad/termonad.hs".text = builtins.readFile ./programs/termonad/termonad.hs;
+
   home.file.".bashrc".text = "
     ${builtins.readFile ./programs/bash/base-16.sh}
     ${builtins.readFile ./programs/bash/clipboard.sh}
