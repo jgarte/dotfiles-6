@@ -1,41 +1,8 @@
-" based on http://github.com/jferris/config_files/blob/master/vimrc
-
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
-filetype off                  " required
+filetype off
 
 " UTF8 Please
 set encoding=utf-8
-
-" Initialize Vim Plugged
-call plug#begin('~/.vim/plugged')
-
-Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'jremmen/vim-ripgrep'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'rking/ag.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
-
-" If you've already got fzf on your path it looks like this just
-" creates a symlink to it. A bit weird but here we are.
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-call plug#end()
 
 " Use CTRL-P for FZF
 nmap <C-P> :FZF<CR>
@@ -45,7 +12,8 @@ set nobackup
 set noswapfile
 set nowritebackup
 
-set showcmd		" display incomplete commands
+" Display incomplete commands
+set showcmd
 
 " Colour scheme
 if filereadable(expand("~/.vimrc_background"))
@@ -102,13 +70,6 @@ set numberwidth=5
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
-
-" Tags
-let g:Tlist_Ctags_Cmd="ctags"
-set tags=./tags;
-
-" Give a shortcut key to NERD Tree
-nmap tt :NERDTreeToggle<CR>
 
 " vim-airline
 set laststatus=2
