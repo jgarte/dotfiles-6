@@ -21,6 +21,7 @@
       "base16-vim"
       "editorconfig-vim"
       "fzf-vim"
+      "fzfWrapper"
       "nerdtree"
       "vim-abolish"
       "vim-airline"
