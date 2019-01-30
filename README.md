@@ -12,13 +12,11 @@ $ curl https://nixos.org/nix/install | sh
 
 #### [Home Manager](https://github.com/rycee/home-manager)
 
-*TODO* Script this
-
 ```
 $ nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 $ nix-channel --update
 $ NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH nix-shell '<home-manager>' -A install
-$ cp -rf ~/.dotfiles/nix/* ~/.config/nixpkgs/
+$ ln -sfT ~/.dotfiles/nixpkgs ~/.config/nixpkgs
 $ home-manager switch
 ```
 
