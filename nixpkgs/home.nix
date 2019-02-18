@@ -91,10 +91,13 @@
     haskellPackages.hindent
     hlint
     htop
+    ipcalc
     jq
     ncdu
+    nmap
     powerline-fonts
     ripgrep
     tree
+    tshark
   ];
 }
