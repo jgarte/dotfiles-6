@@ -26,6 +26,7 @@
       "vim-abolish"
       "vim-airline"
       "vim-airline-themes"
+      "vim-commentary"
       "vim-gitgutter"
       "vim-multiple-cursors"
       "vim-polyglot"
