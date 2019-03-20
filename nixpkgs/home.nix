@@ -7,8 +7,8 @@
 
   programs.tmux = {
     enable = true;
+    terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
-      sensible
       yank
     ];
     extraConfig = builtins.readFile ./programs/tmux/tmux.conf;
@@ -30,7 +30,6 @@
       "vim-gitgutter"
       "vim-multiple-cursors"
       "vim-polyglot"
-      "vim-sensible"
       "vim-surround"
       "vim-trailing-whitespace"
     ];
