@@ -64,6 +64,7 @@
     ${builtins.readFile ./programs/bash/nix-shell.sh}
     ${builtins.readFile ./programs/bash/nix.sh}
     ${builtins.readFile ./programs/bash/opts.sh}
+    ${builtins.readFile ./programs/bash/pager.sh}
     ${builtins.readFile ./programs/bash/path.sh}
     ${builtins.readFile ./programs/bash/prompt.sh}
     ${builtins.readFile ./programs/bash/reload.sh}
