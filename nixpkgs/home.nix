@@ -74,6 +74,7 @@
 
   home.packages = with pkgs; [
     asciinema
+    awscli
     bash-completion
     bashInteractive
     cabal-install

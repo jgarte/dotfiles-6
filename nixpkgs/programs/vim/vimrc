@@ -80,7 +80,7 @@ let g:vim_json_syntax_conceal = 0
 
 " ALE
 let g:ale_linters = {
-\   'javascript': ['standard'],
+\   'javascript': ['eslint'],
 \   'ruby': ['rubocop'],
 \   'haskell': ['hlint'],
 \}
@@ -92,3 +92,4 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
