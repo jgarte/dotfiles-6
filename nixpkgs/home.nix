@@ -94,6 +94,7 @@
     htop
     ipcalc
     jq
+    libossp_uuid
     ncdu
     nmap
     powerline-fonts
