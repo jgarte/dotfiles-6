@@ -8,16 +8,13 @@ Keeping it simple
 
 ```
 $ curl https://nixos.org/nix/install | sh
-$ nix-channel --add https://nixos.org/channels/nixos-18.09 nixpkgs
-$ nix-channel --update
+$ source ~/.dotfiles/nixpkgs/programs/bash/nix.sh
 ```
 
 #### [Home Manager](https://github.com/rycee/home-manager)
 
 ```
-$ nix-channel --add https://github.com/rycee/home-manager/archive/7ec153889c05a840e372c04bca420298e5403dff.tar.gz home-manager
-$ nix-channel --update
-$ NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH nix-shell '<home-manager>' -A install
+$ source ~/.dotfiles/nixpkgs/programs/bash/nix.sh
 $ ln -sfT ~/.dotfiles/nixpkgs ~/.config/nixpkgs
 $ home-manager switch
 ```
