@@ -4,22 +4,21 @@ Keeping it simple
 
 ## Setup
 
-#### [Nix](https://nixos.org/nix/)
+#### 1. [Nix](https://nixos.org/nix/)
 
 ```
 $ curl https://nixos.org/nix/install | sh
 $ source ~/.dotfiles/nixpkgs/programs/bash/nix.sh
 ```
 
-#### [Home Manager](https://github.com/rycee/home-manager)
+#### 2. [Home Manager](https://github.com/rycee/home-manager)
 
 ```
-$ source ~/.dotfiles/nixpkgs/programs/bash/nix.sh
 $ ln -sfT ~/.dotfiles/nixpkgs ~/.config/nixpkgs
-$ home-manager switch
+$ nix-shell '<home-manager>' -A install
 ```
 
-#### [Bash](https://www.gnu.org/software/bash/)
+#### 3. [Bash](https://www.gnu.org/software/bash/)
 
 Set the Nix-installed Bash as the one for your user.
 
