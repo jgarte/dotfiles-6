@@ -7,7 +7,7 @@ Keeping it simple
 #### 1. [Nix](https://nixos.org/nix/)
 
 ```
-$ curl https://nixos.org/nix/install | sh
+$ sh <(curl https://nixos.org/nix/install) --daemon
 $ source ~/.dotfiles/nixpkgs/programs/bash/nix.sh
 ```
 
