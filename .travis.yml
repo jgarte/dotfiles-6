@@ -5,6 +5,6 @@ os:
   - linux
 
 script:
-  - source ./nixpkgs/programs/bash/nix.sh
-  - ln -sfT ./nixpkgs ~/.config/nixpkgs
+  - source nixpkgs/programs/bash/nix.sh
+  - ln -sfT nixpkgs /home/travis/.config/nixpkgs
   - nix-shell '<home-manager>' -A install
