@@ -5,5 +5,20 @@ let
   aws-sam-cli = self: super: {
     aws-sam-cli = self.callPackage (import ./packages/aws-sam-cli) {};
   };
+  ormolu = self: super:
+    let
+      source = super.fetchFromGitHub {
+        owner = "tweag";
+        repo = "ormolu";
+        rev = "de279d80122b287374d4ed87c7b630db1f157642"; # update as necessary
+        sha256 = "0qrxfk62ww6b60ha9sqcgl4nb2n5fhf66a65wszjngwkybwlzmrv"; # as well
+      };
+      ormolu = import source { pkgs = self; };
+    in
+      {
+        haskellPackages = super.haskellPackages // {
+          ormolu = ormolu.ormolu;
+        };
+      };
 in
-[ nodejs-11_13_0 aws-sam-cli ]
+[ nodejs-11_13_0 aws-sam-cli ormolu ]
