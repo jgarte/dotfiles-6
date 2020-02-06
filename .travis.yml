@@ -6,6 +6,7 @@ os:
 
 script:
   - source nixpkgs/programs/bash/nix.sh
+  - mkdir -p /home/travis/.config
   - ln -sfT nixpkgs /home/travis/.config/nixpkgs
   - ls -al ~/.config/
   - nix-shell '<home-manager>' -A install
