@@ -1,5 +1,5 @@
 nixpkgs="https://releases.nixos.org/nixos/unstable/nixos-20.03pre211190.a21c2fa3ea2/nixexprs.tar.xz"
-home_manager="https://github.com/rycee/home-manager/archive/f487b527ec420b888c52df1c4f8c31439201edb7.tar.gz"
+home_manager="https://github.com/rycee/home-manager/archive/7ec153889c05a840e372c04bca420298e5403dff.tar.gz"
 
 export NIX_PATH="nixpkgs=$nixpkgs:home-manager=$home_manager"
 export PATH="$HOME/.nix-profile/bin:$PATH"

@@ -8,7 +8,7 @@ let
   })).customize {
     name = "vim";
     vimrcConfig.customRC = builtins.readFile ./programs/vim/vimrc;
-    vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+    vimrcConfig.packages.default = with pkgs.vimPlugins; {
       start = [
         ale
         base16-vim
@@ -33,7 +33,7 @@ in
 {
   programs.home-manager = {
     enable = true;
-    path = https://github.com/rycee/home-manager/archive/f487b527ec420b888c52df1c4f8c31439201edb7.tar.gz;
+    path = https://github.com/rycee/home-manager/archive/7ec153889c05a840e372c04bca420298e5403dff.tar.gz;
   };
 
   programs.tmux = {
