@@ -38,6 +38,7 @@ in
 
   programs.tmux = {
     enable = true;
+    escapeTime = 0;
     terminal = "screen-256color";
     plugins = with pkgs.tmuxPlugins; [
       yank
@@ -98,18 +99,24 @@ in
     git
     gnupg1
     haskellPackages.ghcid
-    haskellPackages.hindent
+    haskellPackages.ormolu
     hlint
     htop
     ipcalc
     jq
     libossp_uuid
+    lynx
     ncdu
+    netcat
     nmap
     powerline-fonts
     ripgrep
     tree
     tshark
     vim-with-packages
+  ] ++ lib.optionals (builtins.currentSystem != "x86_64-darwin") [
+    termonad-with-packages
+    xclip
+    xsel
   ];
 }
