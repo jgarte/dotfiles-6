@@ -2,7 +2,7 @@
 {
   programs.home-manager = {
     enable = true;
-    path = https://github.com/rycee/home-manager/archive/7ec153889c05a840e372c04bca420298e5403dff.tar.gz;
+    path = https://github.com/rycee/home-manager/archive/f487b527ec420b888c52df1c4f8c31439201edb7.tar.gz;
   };
 
   programs.tmux = {
