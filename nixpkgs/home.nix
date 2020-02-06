@@ -19,13 +19,14 @@ let
         vim-abolish
         vim-airline
         vim-airline-themes
+        vim-better-whitespace
         vim-commentary
         vim-gitgutter
         vim-grammarous
         vim-multiple-cursors
         vim-polyglot
+        vim-sensible
         vim-surround
-        vim-better-whitespace
       ];
     };
   };
