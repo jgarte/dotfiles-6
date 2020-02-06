@@ -1,4 +1,35 @@
-{ pkgs, config, ... }:
+{ pkgs, lib, config, ... }:
+let
+  vim-with-packages = (pkgs.vim_configurable.overrideAttrs (attrs: {
+    configureFlags =
+      lib.filter
+        (f: !(lib.hasPrefix "--enable-gui" f))
+        attrs.configureFlags;
+  })).customize {
+    name = "vim";
+    vimrcConfig.customRC = builtins.readFile ./programs/vim/vimrc;
+    vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+      start = [
+        ale
+        base16-vim
+        editorconfig-vim
+        fzf-vim
+        fzfWrapper
+        nerdtree
+        vim-abolish
+        vim-airline
+        vim-airline-themes
+        vim-commentary
+        vim-gitgutter
+        vim-grammarous
+        vim-multiple-cursors
+        vim-polyglot
+        vim-surround
+        vim-better-whitespace
+      ];
+    };
+  };
+in
 {
   programs.home-manager = {
     enable = true;
@@ -12,28 +43,6 @@
       yank
     ];
     extraConfig = builtins.readFile ./programs/tmux/tmux.conf;
-  };
-
-  programs.vim = {
-    enable = true;
-    plugins = [
-      "ale"
-      "base16-vim"
-      "editorconfig-vim"
-      "fzf-vim"
-      "fzfWrapper"
-      "nerdtree"
-      "vim-abolish"
-      "vim-airline"
-      "vim-airline-themes"
-      "vim-commentary"
-      "vim-gitgutter"
-      "vim-multiple-cursors"
-      "vim-polyglot"
-      "vim-surround"
-      "vim-trailing-whitespace"
-    ];
-    extraConfig = builtins.readFile ./programs/vim/vimrc;
   };
 
   home.file.".gitignore".text = builtins.readFile ./programs/git/gitignore;
@@ -101,5 +110,6 @@
     ripgrep
     tree
     tshark
+    vim-with-packages
   ];
 }
