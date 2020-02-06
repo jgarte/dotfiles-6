@@ -7,7 +7,7 @@ os:
 script:
   - source nixpkgs/programs/bash/nix.sh
   - mkdir -p ~/.config
-  - nix-shell -p coreutils --run ln -sfT $PWD/nixpkgs ~/.config/nixpkgs
+  - nix-shell -p coreutils --run 'ln -sfT $PWD/nixpkgs ~/.config/nixpkgs'
   - rm -f ~/.bashrc
   - rm -f ~/.gitconfig
   - nix-shell '<home-manager>' -A install
