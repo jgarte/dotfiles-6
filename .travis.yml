@@ -7,6 +7,6 @@ os:
 script:
   - source nixpkgs/programs/bash/nix.sh
   - mkdir -p ~/.config
-  - ln -sfT nixpkgs ~/.config/nixpkgs
+  - ln -sfT $PWD/nixpkgs ~/.config/nixpkgs
   - ls -al ~/.config/nixpkgs/
   - nix-shell '<home-manager>' -A install
