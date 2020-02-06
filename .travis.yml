@@ -1,0 +1,10 @@
+language: nix
+
+os:
+  - osx
+  - linux
+
+script:
+  - source ./nixpkgs/programs/bash/nix.sh
+  - ln -sfT ./nixpkgs ~/.config/nixpkgs
+  - nix-shell '<home-manager>' -A install
