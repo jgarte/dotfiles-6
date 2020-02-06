@@ -1,5 +1,7 @@
 # Dotfiles
 
+[![Build Status](https://travis-ci.org/bradparker/dotfiles.svg?branch=master)](https://travis-ci.org/bradparker/dotfiles)
+
 Keeping it simple
 
 ## Setup
@@ -14,7 +16,7 @@ $ source ~/.dotfiles/nixpkgs/programs/bash/nix.sh
 #### 2. [Home Manager](https://github.com/rycee/home-manager)
 
 ```
-$ ln -sfT ~/.dotfiles/nixpkgs ~/.config/nixpkgs
+$ nix-shell -p coreutils --run 'ln -sfT ~/.dotfiles/nixpkgs ~/.config/nixpkgs'
 $ nix-shell '<home-manager>' -A install
 ```
 
