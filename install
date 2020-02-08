@@ -28,7 +28,7 @@ install_home_manager () {
 
 change_shell () {
   sudo bash -c "echo $(which bash) >> /etc/shells"
-  chsh -s $(which bash) $(whoami)
+  sudo chsh -s $(which bash) $(whoami)
 }
 
 if ! [ -x "$(command -v nix)" ]; then
