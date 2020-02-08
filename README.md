@@ -6,6 +6,14 @@ Keeping it simple
 
 ## Setup
 
+#### 0. (Optional) Run the [install](./install) script
+
+```
+$ ./install
+```
+
+This has the effect of running the commands outlined in the next three steps.
+
 #### 1. [Nix](https://nixos.org/nix/)
 
 ```
