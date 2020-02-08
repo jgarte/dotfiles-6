@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+install_nix () {
+  sh <(curl https://nixos.org/nix/install) --daemon
+}
+
+move_old () {
+  if [ -f $1 ]; then
+    echo "WARN: $1 found, moving to $1.old"
+
+    mv $1 $1.old
+  fi
+}
+
+install_home_manager () {
+  source $PWD/nixpkgs/programs/bash/nix.sh
+
+  move_old $HOME/.bashrc
+  move_old $HOME/.gitconfig
+
+  mkdir -p ~/.config
+  nix-shell -p coreutils --run "ln -sfT $PWD/nixpkgs $HOME/.config/nixpkgs"
+
+  nix-shell '<home-manager>' -A install
+}
+
+change_shell () {
+  sudo bash -c "echo $(which bash) >> /etc/shells"
+  chsh -s $(which bash) $(whoami)
+}
+
+if ! [ -x "$(command -v nix)" ]; then
+  echo "Installing Nix"
+
+  install_nix
+else
+  echo "Nix already installed, skipping"
+fi
+
+if ! [ -x "$(command -v home-manager)" ]; then
+  echo "Installing Home Manager"
+
+  install_home_manager
+else
+  echo "Home Manager already installed, skipping"
+fi
+
+if ! [ $SHELL == $(which bash) ]; then
+  echo "Changing shell to $(which bash)"
+
+  change_shell
+else
+  echo "Shell already set to $(which bash), skipping"
+fi
