@@ -47,6 +47,8 @@ in
     extraConfig = builtins.readFile ./programs/tmux/tmux.conf;
   };
 
+  home.file.".config/alacritty/alacritty.yml".text = builtins.readFile ./programs/alacritty/alacritty.yml;
+
   home.file.".gitignore".text = builtins.readFile ./programs/git/gitignore;
   home.file.".gitconfig".text = builtins.readFile ./programs/git/gitconfig;
 
