@@ -21,9 +21,22 @@ git_branch () {
   fi
 }
 
+nix_store_paths () {
+  echo $PATH | \
+    sed s/:/\\n/g | \
+    grep -e "^/nix/store" | \
+    cut --delimiter='-' --fields=2- | \
+    cut --delimiter='/' --fields=1 | \
+    paste -sd "," | \
+    xargs printf
+}
+
 nix_shell_status () {
+  local store_paths="$(nix_store_paths)"
   if [ ! -z $IN_NIX_SHELL ]; then
     printf "[nix:$name]"
+  elif [ ! -z $store_paths ]; then
+    printf "[nix:$store_paths]"
   else
     printf ""
   fi
