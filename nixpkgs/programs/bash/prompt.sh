@@ -27,8 +27,7 @@ nix_store_paths () {
     grep -e "^/nix/store" | \
     cut --delimiter='-' --fields=2- | \
     cut --delimiter='/' --fields=1 | \
-    paste -sd "," | \
-    xargs printf
+    paste -sd ","
 }
 
 nix_shell_status () {
