@@ -91,7 +91,6 @@ in
     cabal-install
     cabal2nix
     coreutils
-    darcs
     direnv
     entr
     fd
