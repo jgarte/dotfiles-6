@@ -23,7 +23,7 @@ git_branch () {
 
 nix_store_paths () {
   echo $PATH | \
-    sed s/:/\\n/g | \
+    tr ":" "\n" | \
     grep -e "^/nix/store" | \
     cut --delimiter='-' --fields=2- | \
     cut --delimiter='/' --fields=1 | \
