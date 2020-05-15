@@ -32,7 +32,10 @@ let
   };
 in
 rec {
-  imports = [ ./programs/alacritty/module.nix ];
+  imports = [
+    ./programs/alacritty/module.nix
+    ./programs/termonad/module.nix
+  ];
 
   programs.home-manager = {
     enable = true;
@@ -72,6 +75,11 @@ rec {
         };
       };
     };
+  };
+
+  programs.termonad = {
+    enable = builtins.currentSystem != "x86_64-darwin";
+    configuration = builtins.readFile ./programs/termonad/termonad.hs;
   };
 
   home.file.".gitignore".text = builtins.readFile ./programs/git/gitignore;
@@ -142,7 +150,6 @@ rec {
     tshark
     vim-with-packages
   ] ++ lib.optionals (builtins.currentSystem != "x86_64-darwin") [
-    termonad-with-packages
     xclip
     xsel
   ];
