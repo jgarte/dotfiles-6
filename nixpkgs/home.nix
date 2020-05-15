@@ -31,7 +31,9 @@ let
     };
   };
 in
-{
+rec {
+  imports = [ ./programs/alacritty/module.nix ];
+
   programs.home-manager = {
     enable = true;
     path = https://github.com/rycee/home-manager/archive/f487b527ec420b888c52df1c4f8c31439201edb7.tar.gz;
@@ -40,14 +42,37 @@ in
   programs.tmux = {
     enable = true;
     escapeTime = 0;
-    terminal = "screen-256color";
-    plugins = with pkgs.tmuxPlugins; [
-      yank
-    ];
     extraConfig = builtins.readFile ./programs/tmux/tmux.conf;
+    newSession = true;
+    package = pkgs.tmux;
+    plugins = with pkgs.tmuxPlugins; [ yank ];
+    terminal = "screen-256color";
   };
 
-  home.file.".config/alacritty/alacritty.yml".text = builtins.readFile ./programs/alacritty/alacritty.yml;
+  programs.cross-platform-alacritty = {
+    enable = builtins.currentSystem == "x86_64-darwin";
+    settings = {
+      shell = {
+        program = "${programs.tmux.package}/bin/tmux";
+        args = [ "attach" ];
+      };
+      font = {
+        size = 18;
+        normal = {
+          family = "Roboto Mono for Powerline";
+          style = "Regular";
+        };
+        bold = {
+          family = "Roboto Mono for Powerline";
+          style = "Bold";
+        };
+        italic = {
+          family = "Roboto Mono for Powerline";
+          style = "Italic";
+        };
+      };
+    };
+  };
 
   home.file.".gitignore".text = builtins.readFile ./programs/git/gitignore;
   home.file.".gitconfig".text = builtins.readFile ./programs/git/gitconfig;
