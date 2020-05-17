@@ -1,1 +1,3 @@
-alias fcd='cd $(fd -t d | fzf)'
+fcd () {
+  cd "$(fd -t d $@ | fzf)"
+}
