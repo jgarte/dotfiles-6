@@ -96,7 +96,7 @@ rec {
 
   home.file.".config/termonad/termonad.hs".text = builtins.readFile ./programs/termonad/termonad.hs;
 
-  home.file.".bashrc".text = "
+  home.file.".bashrc".text = ''
     ${builtins.readFile ./programs/bash/base-16.sh}
     ${builtins.readFile ./programs/bash/clipboard.sh}
     ${builtins.readFile ./programs/bash/codecdpath.sh}
@@ -117,7 +117,7 @@ rec {
     ${builtins.readFile ./programs/bash/reload.sh}
     ${builtins.readFile ./programs/bash/rust.sh}
     ${builtins.readFile ./programs/bash/title.sh}
-  ";
+  '';
 
   home.packages = with pkgs; [
     asciinema
