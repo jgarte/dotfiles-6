@@ -35,6 +35,7 @@ rec {
   imports = [
     ./programs/alacritty/module.nix
     ./programs/termonad/module.nix
+    ./modules/powerline-fonts.nix
   ];
 
   programs.home-manager = {
@@ -144,7 +145,6 @@ rec {
     ncdu
     netcat
     nmap
-    powerline-fonts
     ripgrep
     tree
     tshark
