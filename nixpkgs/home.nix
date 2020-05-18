@@ -79,7 +79,7 @@ rec {
   };
 
   programs.termonad = {
-    enable = builtins.currentSystem != "x86_64-darwin";
+    enable = true;
     configuration = builtins.readFile ./programs/termonad/termonad.hs;
   };
 

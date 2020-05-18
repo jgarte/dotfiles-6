@@ -23,5 +23,14 @@ let
         };
       };
     };
+  vte = self: super: {
+    vte = super.vte.overrideAttrs (old: old // {
+      version = "0.59.1";
+      src = builtins.fetchTarball {
+        url = https://gitlab.gnome.org/GNOME/vte/-/archive/347f7dd9b1c11244156bfb593866306c735cb06a/vte-347f7dd9b1c11244156bfb593866306c735cb06a.tar.gz;
+      };
+      mesonFlags = ["-D_b_symbolic_functions=false"];
+    });
+  };
 in
-[ nodejs-11_13_0 aws-sam-cli ormolu ]
+[ nodejs-11_13_0 aws-sam-cli ormolu vte ]
