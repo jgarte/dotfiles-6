@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.programs.termonad;
+  cfg = config.powerline-fonts;
 in
 with lib;
 {
@@ -12,8 +12,9 @@ with lib;
 
   config = mkIf cfg.enable (
     if builtins.currentSystem == "x86_64-darwin" then {
-      home.file."Library/fonts/powerline-fonts" = {
+      home.file."Library/Fonts/powerline-fonts" = {
         source = pkgs.powerline-fonts;
+        recursive = true;
       };
     } else {
       home.file.".fonts/powerline-fonts" = {

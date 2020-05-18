@@ -83,6 +83,8 @@ rec {
     configuration = builtins.readFile ./programs/termonad/termonad.hs;
   };
 
+  powerline-fonts.enable = true;
+
   home.file.".gitignore".text = builtins.readFile ./programs/git/gitignore;
   home.file.".gitconfig".text = builtins.readFile ./programs/git/gitconfig;
 
