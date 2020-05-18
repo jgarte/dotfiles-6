@@ -119,11 +119,17 @@ rec {
     ${builtins.readFile ./programs/bash/reload.sh}
     ${builtins.readFile ./programs/bash/rust.sh}
     ${builtins.readFile ./programs/bash/title.sh}
-
-    export LOCALE_ARCHIVE_2_11="${pkgs.glibcLocales}/lib/locale/locale-archive"
-    export LOCALE_ARCHIVE_2_27="${pkgs.glibcLocales}/lib/locale/locale-archive"
-    export LOCALE_ARCHIVE="/usr/bin/locale"
-  '';
+  '' + (
+    if builtins.currentSystem != "x86_64-darwin"
+      then
+        ''
+          export LOCALE_ARCHIVE_2_11=${pkgs.glibcLocales}/lib/locale/locale-archive
+          export LOCALE_ARCHIVE_2_27=${pkgs.glibcLocales}/lib/locale/locale-archive
+          export LOCALE_ARCHIVE=/usr/bin/locale
+        ''
+      else
+        ""
+  );
 
   home.packages = with pkgs; [
     asciinema
