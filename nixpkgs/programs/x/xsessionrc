@@ -1,0 +1,3 @@
+xrandr --newmode "3456x1944_30.00"  272.50  3456 3664 4024 4592  1944 1947 1952 1980 -hsync +vsync
+xrandr --addmode HDMI-1 "3456x1944_30.00"
+xrandr --output HDMI-1 --mode "3456x1944_30.00"
