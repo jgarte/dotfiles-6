@@ -18,7 +18,7 @@ This has the effect of running the commands outlined in the next three steps.
 
 ```
 $ sh <(curl https://nixos.org/nix/install) --daemon
-$ source ~/.dotfiles/nixpkgs/programs/bash/nix.sh
+$ source ~/.dotfiles/nixpkgs/config.sh
 ```
 
 #### 2. [Home Manager](https://github.com/rycee/home-manager)

@@ -40,7 +40,7 @@ rec {
 
   programs.home-manager = {
     enable = true;
-    path = https://github.com/rycee/home-manager/archive/f487b527ec420b888c52df1c4f8c31439201edb7.tar.gz;
+    path = builtins.getEnv "HOME_MANAGER";
   };
 
   programs.tmux = {
@@ -149,6 +149,9 @@ rec {
     ${builtins.readFile ./programs/bash/reload.sh}
     ${builtins.readFile ./programs/bash/rust.sh}
     ${builtins.readFile ./programs/bash/title.sh}
+
+    ${builtins.readFile ./config.sh}
+
   '' + (
     if builtins.currentSystem != "x86_64-darwin"
       then

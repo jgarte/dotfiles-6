@@ -15,7 +15,7 @@ move_old () {
 }
 
 install_home_manager () {
-  source $PWD/nixpkgs/programs/bash/nix.sh
+  source $PWD/nixpkgs/config.sh
 
   move_old $HOME/.bashrc
   move_old $HOME/.gitconfig
