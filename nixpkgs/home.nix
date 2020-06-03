@@ -180,7 +180,6 @@ rec {
     git
     gnupg1
     haskellPackages.ghcid
-    haskellPackages.ormolu
     hlint
     htop
     ipcalc
