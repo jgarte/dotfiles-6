@@ -189,6 +189,7 @@ rec {
     ncdu
     netcat
     nmap
+    ormolu
     ripgrep
     tree
     tshark
