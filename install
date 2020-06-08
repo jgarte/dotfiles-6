@@ -3,7 +3,8 @@
 set -eo pipefail
 
 install_nix () {
-  sh <(curl https://nixos.org/nix/install) --daemon
+  sh <(curl https://nixos.org/nix/install) --daemon --darwin-use-unencrypted-nix-store-volume
+  . "/nix/var/nix/profiles/default/etc/profile.d/nix.sh"
 }
 
 move_old () {
