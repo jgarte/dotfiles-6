@@ -61,7 +61,7 @@ rec {
         args = [ "attach" ];
       };
       font = {
-        size = 18;
+        size = 24;
         normal = {
           family = "Roboto Mono for Powerline";
           style = "Regular";
