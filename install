@@ -6,7 +6,7 @@ get_filesystem_type () {
   if [ -x "$(command -v diskutil)" ]; then
     printf $(diskutil info / | grep 'Type (Bundle)' | awk -F':' '{ print $2 }' | tr -d '[:space:]')
   else
-    printf ""
+    printf "other"
   fi
 }
 
