@@ -11,10 +11,7 @@ get_filesystem_type () {
 }
 
 install_nix () {
-  set -x
-
   local filesystem_type=$(get_filesystem_type)
-  local install_script="/tmp/install-nix"
   local args=()
 
   if ! [ $SINGLE_USER == "true" ]; then
@@ -25,11 +22,9 @@ install_nix () {
     args+=(--darwin-use-unencrypted-nix-store-volume)
   fi
 
-  yes | sh <(curl https://nixos.org/nix/install) ${args[@]}
+  sh <(curl https://nixos.org/nix/install) ${args[@]}
 
   . "/nix/var/nix/profiles/default/etc/profile.d/nix.sh"
-
-  set +x
 }
 
 move_old () {
