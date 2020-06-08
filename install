@@ -5,13 +5,15 @@ set -eo pipefail
 get_filesystem_type () {
   if [ -x "$(command -v diskutil)" ]; then
     printf $(diskutil info / | grep 'Type (Bundle)' | awk -F':' '{ print $2 }' | tr -d '[:space:]')
+  else
+    printf ""
   fi
 }
 
 install_nix () {
   set -x
 
-  local filesystem=$(get_filesystem_type)
+  local filesystem_type=$(get_filesystem_type)
   local install_script="/tmp/install-nix"
   local args=()
 
