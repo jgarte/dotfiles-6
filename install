@@ -11,14 +11,17 @@ get_filesystem_type () {
 install_nix () {
   local filesystem=$(get_filesystem_type)
   local install_script="/tmp/install-nix"
+  local args=()
 
-  curl -o $install_script https://nixos.org/nix/install
+  if ! [ $SINGLE_USER == "true" ]; then
+    args+=(--daemon)
+  fi
 
   if [ $filesystem_type == "apfs" ]; then
-    yes | sh $install_script --daemon --darwin-use-unencrypted-nix-store-volume
-  else
-    yes | sh $install_script --daemon
+    args+=(--darwin-use-unencrypted-nix-store-volume)
   fi
+
+  yes | sh <(curl https://nixos.org/nix/install) ${args[@]}
 
   . "/nix/var/nix/profiles/default/etc/profile.d/nix.sh"
 }
