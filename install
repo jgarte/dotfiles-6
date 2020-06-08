@@ -9,6 +9,8 @@ get_filesystem_type () {
 }
 
 install_nix () {
+  set -x
+
   local filesystem=$(get_filesystem_type)
   local install_script="/tmp/install-nix"
   local args=()
@@ -24,6 +26,8 @@ install_nix () {
   yes | sh <(curl https://nixos.org/nix/install) ${args[@]}
 
   . "/nix/var/nix/profiles/default/etc/profile.d/nix.sh"
+
+  set +x
 }
 
 move_old () {
