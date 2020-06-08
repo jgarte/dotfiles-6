@@ -24,7 +24,7 @@ install_nix () {
 
   sh <(curl https://nixos.org/nix/install) ${args[@]}
 
-  . "/nix/var/nix/profiles/default/etc/profile.d/nix.sh"
+  . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 }
 
 move_old () {
