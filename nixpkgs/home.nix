@@ -25,6 +25,7 @@ let
         vim-grammarous
         vim-multiple-cursors
         vim-polyglot
+        vim-test
         vim-sensible
         vim-surround
       ];
