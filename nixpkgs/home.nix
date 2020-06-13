@@ -37,6 +37,7 @@ rec {
     ./programs/alacritty/module.nix
     ./programs/termonad/module.nix
     ./modules/powerline-fonts.nix
+    ./modules/roboto-fonts.nix
   ];
 
   programs.home-manager = {
@@ -85,6 +86,8 @@ rec {
   };
 
   powerline-fonts.enable = true;
+
+  roboto-fonts.enable = true;
 
   programs.autorandr = {
     enable = builtins.currentSystem != "x86_64-darwin";
