@@ -149,6 +149,7 @@ rec {
     ${builtins.readFile ./programs/bash/opts.sh}
     ${builtins.readFile ./programs/bash/pager.sh}
     ${builtins.readFile ./programs/bash/path.sh}
+    ${builtins.readFile ./programs/bash/preview-rg.sh}
     ${builtins.readFile ./programs/bash/prompt.sh}
     ${builtins.readFile ./programs/bash/reload.sh}
     ${builtins.readFile ./programs/bash/rust.sh}
