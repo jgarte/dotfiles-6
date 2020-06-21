@@ -17,8 +17,6 @@ let
         fzfWrapper
         nerdtree
         vim-abolish
-        vim-airline
-        vim-airline-themes
         vim-better-whitespace
         vim-commentary
         vim-gitgutter

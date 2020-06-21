@@ -16,9 +16,16 @@ with lib;
         source = pkgs.roboto;
         recursive = true;
       };
+      home.file."Library/Fonts/roboto-mono" = {
+        source = pkgs.roboto-mono;
+        recursive = true;
+      };
     } else {
       home.file.".fonts/roboto" = {
         source = pkgs.roboto;
+      };
+      home.file.".fonts/roboto-mono" = {
+        source = pkgs.roboto-mono;
       };
     }
   );

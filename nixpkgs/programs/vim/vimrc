@@ -71,9 +71,7 @@ set numberwidth=5
 set ignorecase
 set smartcase
 
-" vim-airline
 set laststatus=2
-let g:airline_powerline_fonts = 1
 
 " vim json
 let g:vim_json_syntax_conceal = 0
