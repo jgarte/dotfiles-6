@@ -5,3 +5,5 @@ if [ -f ~/.local/share/git-completion.bash ]; then
 
   __git_complete g _git
 fi
+
+export GIT_SSH=$(which ssh)
