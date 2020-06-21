@@ -63,15 +63,15 @@ rec {
       font = {
         size = 24;
         normal = {
-          family = "Roboto Mono for Powerline";
+          family = "Roboto Mono";
           style = "Regular";
         };
         bold = {
-          family = "Roboto Mono for Powerline";
+          family = "Roboto Mono";
           style = "Bold";
         };
         italic = {
-          family = "Roboto Mono for Powerline";
+          family = "Roboto Mono";
           style = "Italic";
         };
       };
@@ -82,8 +82,6 @@ rec {
     enable = builtins.currentSystem != "x86_64-darwin";
     configuration = builtins.readFile ./programs/termonad/termonad.hs;
   };
-
-  powerline-fonts.enable = true;
 
   roboto-fonts.enable = true;
 
