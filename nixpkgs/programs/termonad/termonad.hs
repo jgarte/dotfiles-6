@@ -25,7 +25,7 @@ import Termonad.Config
 fontConf :: FontConfig
 fontConf =
   defaultFontConfig
-    {fontSize = FontSizePoints 18, fontFamily = "Roboto Mono"}
+    {fontSize = FontSizePoints 18, fontFamily = "Fira Code"}
 
 myTMConfig :: TMConfig
 myTMConfig =
