@@ -34,8 +34,8 @@ rec {
   imports = [
     ./programs/alacritty/module.nix
     ./programs/termonad/module.nix
-    ./modules/powerline-fonts.nix
     ./modules/roboto-fonts.nix
+    ./modules/fira-fonts.nix
   ];
 
   programs.home-manager = {
@@ -61,17 +61,17 @@ rec {
         args = [ "attach" ];
       };
       font = {
-        size = 24;
+        size = 18;
         normal = {
-          family = "Roboto Mono";
+          family = "Fira Code";
           style = "Regular";
         };
         bold = {
-          family = "Roboto Mono";
+          family = "Fira Code";
           style = "Bold";
         };
         italic = {
-          family = "Roboto Mono";
+          family = "Fira Code";
           style = "Italic";
         };
       };
@@ -82,6 +82,8 @@ rec {
     enable = builtins.currentSystem != "x86_64-darwin";
     configuration = builtins.readFile ./programs/termonad/termonad.hs;
   };
+
+  fira-fonts.enable = true;
 
   roboto-fonts.enable = true;
 
