@@ -4,10 +4,7 @@ filetype off
 " UTF8 Please
 set encoding=utf-8
 
-" Use CTRL-P for FZF
-nmap <C-P> :FZF<CR>
-
-" Don't save .swap files, they're annoying
+" Don't save .swap files
 set nobackup
 set noswapfile
 set nowritebackup
@@ -29,13 +26,13 @@ endif
 " Switch wrap off for everything
 set nowrap
 
-" Configure better whitespace
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
-
+" Auto commands
 if has("autocmd")
   " Enable soft-wrapping for text files
   autocmd FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
+
+  " Fold YAML Files
+  autocmd FileType yaml setlocal foldmethod=indent
 
   augroup vimrcEx
     au!
@@ -57,9 +54,6 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-" \ is the leader character
-let mapleader = "\\"
-
 " No Help, please
 nmap <F1> <Esc>
 
@@ -67,14 +61,26 @@ nmap <F1> <Esc>
 set number
 set numberwidth=5
 
-" case only matters with mixed case expressions
+" When searching, case only matters with mixed case expressions
 set ignorecase
 set smartcase
 
+" Enable the statusline
 set laststatus=2
 
-" vim json
-let g:vim_json_syntax_conceal = 0
+" \ is the leader character
+let mapleader = "\\"
+
+" ********************************
+" **** Plugin specific config ****
+" ********************************
+
+" Better whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
+" FZF
+nmap <C-P> :FZF<CR>
 
 " ALE
 let g:ale_linters = {
