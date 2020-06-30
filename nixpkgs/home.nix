@@ -29,6 +29,14 @@ let
       ];
     };
   };
+
+  rufo = pkgs.callPackage ({ buildRubyGem, ruby }:
+    buildRubyGem rec {
+      inherit ruby;
+      gemName = "rufo";
+      version = "0.12.0";
+      source.sha256 = "0nwasskcm0nrf7f52019x4fvxa5zckj4fcvf4cdl0qflrcwb1l9f";
+    }) {};
 in
 rec {
   imports = [
@@ -194,6 +202,7 @@ rec {
     nmap
     ormolu
     ripgrep
+    rufo
     tree
     tshark
     vim-with-packages
