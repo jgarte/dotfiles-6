@@ -22,7 +22,7 @@ install_nix () {
     args+=(--darwin-use-unencrypted-nix-store-volume)
   fi
 
-  sh <(curl https://nixos.org/nix/install) ${args[@]}
+  sh <(curl -L https://nixos.org/nix/install) ${args[@]}
 
   . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 }
