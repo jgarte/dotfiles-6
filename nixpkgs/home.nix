@@ -196,6 +196,7 @@ rec {
     ipcalc
     jq
     libossp_uuid
+    lorri
     lynx
     ncdu
     netcat
