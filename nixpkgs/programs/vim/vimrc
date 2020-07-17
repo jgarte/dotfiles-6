@@ -84,15 +84,16 @@ nmap <C-P> :FZF<CR>
 
 " ALE
 let g:ale_linters = {
+\   'haskell': ['hlint'],
 \   'javascript': ['eslint'],
 \   'ruby': ['rubocop'],
-\   'haskell': ['hlint'],
 \}
 
 let g:ale_fixers = {
 \   'elm': ['format'],
-\   'typescript': ['prettier'],
 \   'javascript': ['prettier'],
+\   'ruby': ['rubocop'],
+\   'typescript': ['prettier'],
 \}
 
 let g:ale_fix_on_save = 1
