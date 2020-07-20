@@ -57,7 +57,7 @@ rec {
     extraConfig = builtins.readFile ./programs/tmux/tmux.conf;
     newSession = true;
     package = pkgs.tmux;
-    plugins = with pkgs.tmuxPlugins; [ yank ];
+    plugins = [];
     terminal = "screen-256color";
   };
 
