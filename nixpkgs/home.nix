@@ -1,11 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-  vim-with-packages = (pkgs.vim_configurable.overrideAttrs (attrs: {
-    configureFlags =
-      lib.filter
-        (f: !(lib.hasPrefix "--enable-gui" f))
-        attrs.configureFlags;
-  })).customize {
+  vim-with-packages = pkgs.vim_configurable.customize {
     name = "vim";
     vimrcConfig.customRC = builtins.readFile ./programs/vim/vimrc;
     vimrcConfig.packages.default = with pkgs.vimPlugins; {
