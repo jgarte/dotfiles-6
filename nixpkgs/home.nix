@@ -184,7 +184,6 @@ rec {
     fzf
     ghc
     git
-    gnupg1
     haskellPackages.ghcid
     hlint
     htop
@@ -200,8 +199,8 @@ rec {
     ripgrep
     rufo
     tree
-    tshark
     vim-with-packages
+    vulnix
   ] ++ lib.optionals (builtins.currentSystem != "x86_64-darwin") [
     xclip
     xsel

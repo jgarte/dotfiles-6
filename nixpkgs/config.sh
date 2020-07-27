@@ -1,5 +1,5 @@
-export NIXPKGS="https://releases.nixos.org/nixpkgs/nixpkgs-20.09pre228165.00df2371122/nixexprs.tar.xz"
-export HOME_MANAGER="https://github.com/rycee/home-manager/archive/f487b527ec420b888c52df1c4f8c31439201edb7.tar.gz"
+export NIXPKGS="https://releases.nixos.org/nixpkgs/nixpkgs-20.09pre235652.7d557a5d1b3/nixexprs.tar.xz"
+export HOME_MANAGER="https://github.com/rycee/home-manager/archive/7b73f840712de88093f6c056e3c658e114ca0b3c.tar.gz"
 
 set_nix_path () {
   local nixpkgs_path="nixpkgs=$NIXPKGS"
