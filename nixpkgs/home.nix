@@ -35,7 +35,6 @@ let
 in
 rec {
   imports = [
-    ./programs/alacritty/module.nix
     ./programs/termonad/module.nix
     ./modules/roboto-fonts.nix
     ./modules/fira-fonts.nix
@@ -56,7 +55,7 @@ rec {
     terminal = "screen-256color";
   };
 
-  programs.cross-platform-alacritty = {
+  programs.alacritty = {
     enable = builtins.currentSystem == "x86_64-darwin";
     settings = {
       shell = {
