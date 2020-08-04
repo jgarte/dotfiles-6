@@ -32,6 +32,21 @@ let
       version = "0.12.0";
       source.sha256 = "0nwasskcm0nrf7f52019x4fvxa5zckj4fcvf4cdl0qflrcwb1l9f";
     }) {};
+
+  gifit = { runtimeShell, ffmpeg, writeScriptBin }:
+    writeScriptBin "gifit" ''
+      #!${runtimeShell}
+
+      ${ffmpeg}/bin/ffmpeg \
+        -ss 61.0 \
+        -i $1 \
+        -filter_complex "[0:v] fps=12,scale=720:-1,split [a][b];[a] palettegen [p];[b][p] paletteuse" \
+        $2
+    '';
+
+  scripts = [
+    (pkgs.callPackage gifit {})
+  ];
 in
 rec {
   imports = [
@@ -203,5 +218,5 @@ rec {
   ] ++ lib.optionals (builtins.currentSystem != "x86_64-darwin") [
     xclip
     xsel
-  ];
+  ] ++ scripts;
 }
