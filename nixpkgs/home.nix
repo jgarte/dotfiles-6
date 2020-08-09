@@ -185,15 +185,16 @@ rec {
   );
 
   home.packages = with pkgs; [
-    asciinema
-    awscli
+    bandwhich
     bash-completion
     bashInteractive
+    bat
     cabal-install
     cabal2nix
     coreutils
     direnv
     entr
+    exa
     fd
     fzf
     ghc
@@ -201,6 +202,7 @@ rec {
     haskellPackages.ghcid
     hlint
     htop
+    hyperfine
     ipcalc
     jq
     libossp_uuid
@@ -210,11 +212,16 @@ rec {
     netcat
     nmap
     ormolu
+    procs
     ripgrep
     rufo
+    sd
+    tokei
     tree
     vim-with-packages
     vulnix
+    ytop
+    zoxide
   ] ++ lib.optionals (builtins.currentSystem != "x86_64-darwin") [
     xclip
     xsel
