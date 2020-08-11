@@ -220,7 +220,6 @@ rec {
     vim-with-packages
     vulnix
     ytop
-    zoxide
   ] ++ lib.optionals (builtins.currentSystem != "x86_64-darwin") [
     xclip
     xsel
