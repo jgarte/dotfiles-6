@@ -49,7 +49,6 @@ let
 in
 rec {
   imports = [
-    ./programs/termonad/module.nix
     ./modules/roboto-fonts.nix
     ./modules/fira-fonts.nix
   ];
@@ -92,11 +91,6 @@ rec {
         };
       };
     };
-  };
-
-  programs.termonad = {
-    enable = builtins.currentSystem != "x86_64-darwin";
-    configuration = builtins.readFile ./programs/termonad/termonad.hs;
   };
 
   fira-fonts.enable = true;
