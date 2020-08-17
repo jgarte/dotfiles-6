@@ -97,6 +97,13 @@ rec {
 
   roboto-fonts.enable = true;
 
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "base16";
+    };
+  };
+
   programs.autorandr = {
     enable = builtins.currentSystem != "x86_64-darwin";
 
@@ -181,7 +188,6 @@ rec {
     bandwhich
     bash-completion
     bashInteractive
-    bat
     cabal-install
     cabal2nix
     coreutils
