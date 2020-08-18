@@ -140,11 +140,17 @@ rec {
   home.file.".gitconfig".text = builtins.readFile ./programs/git/gitconfig;
 
   home.file.".config/base16-shell" = {
-    source = builtins.fetchTarball "https://github.com/chriskempson/base16-shell/archive/master.tar.gz";
+    source = builtins.fetchTarball {
+      url = "https://github.com/chriskempson/base16-shell/archive/ce8e1e540367ea83cc3e01eec7b2a11783b3f9e1.tar.gz";
+      sha256 = "1yj36k64zz65lxh28bb5rb5skwlinixxz6qwkwaf845ajvm45j1q";
+    };
   };
 
   home.file.".local/share/git-completion.bash" = {
-    source = "${builtins.fetchTarball "https://github.com/git/git/archive/master.tar.gz"}/contrib/completion/git-completion.bash";
+    source = "${builtins.fetchTarball {
+      url = "https://github.com/git/git/archive/2befe97201e1f3175cce557866c5822793624b5a.tar.gz";
+      sha256 = "1mz0arnnd715jl891yg8hjplkm4hgn7pxhwfva5lbda801nps2r7";
+    }}/contrib/completion/git-completion.bash";
   };
 
   home.file.".bashrc".text = ''
@@ -169,6 +175,13 @@ rec {
     ${builtins.readFile ./programs/bash/reload.sh}
     ${builtins.readFile ./programs/bash/rust.sh}
     ${builtins.readFile ./programs/bash/title.sh}
+
+    if [ ! -z $BASE16_THEME ]; then
+      source ${builtins.fetchTarball {
+        url = "https://github.com/fnune/base16-fzf/archive/ef4c386689f18bdc754a830a8e66bc2d46d515ae.tar.gz";
+        sha256 = "1hcr9sq3bxnin2b1pn9dzw39ddxsx1a0fr075l62yn9203fvq0hq";
+      }}/bash/base16-$BASE16_THEME.config
+    fi
 
     ${builtins.readFile ./config.sh}
 
