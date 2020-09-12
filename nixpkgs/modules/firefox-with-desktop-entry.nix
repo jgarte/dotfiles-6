@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.programs.firefox-with-desktop-entry;
+  firefox = pkgs.firefox;
 in
 with lib;
 {
@@ -13,7 +14,7 @@ with lib;
   config = mkIf cfg.enable ({
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox;
+      package = firefox;
       profiles.brad = {
         id = 0;
         isDefault = true;
@@ -25,6 +26,6 @@ with lib;
         };
       };
     };
-    home.file.".local/share/applications/firefox.desktop".source = "${pkgs.firefox}/share/applications/firefox.desktop";
+    home.file.".local/share/applications/firefox.desktop".source = "${firefox}/share/applications/firefox.desktop";
   });
 }
