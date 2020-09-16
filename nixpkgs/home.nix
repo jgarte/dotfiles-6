@@ -222,7 +222,7 @@ rec {
     ghc
     git
     haskellPackages.ghcid
-    hlint
+    haskellPackages.hlint
     htop
     hyperfine
     ipcalc
