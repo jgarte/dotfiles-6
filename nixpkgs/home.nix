@@ -232,6 +232,7 @@ rec {
     lynx
     ncdu
     netcat
+    nix
     nmap
     ormolu
     procs
