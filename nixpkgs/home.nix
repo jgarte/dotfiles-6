@@ -213,7 +213,6 @@ rec {
     bash-completion
     bashInteractive
     cabal-install
-    cabal2nix
     coreutils
     direnv
     entr
