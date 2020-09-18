@@ -196,17 +196,9 @@ rec {
 
     ${builtins.readFile ./config.sh}
 
-  '' + (
-    if builtins.currentSystem != "x86_64-darwin"
-      then
-        ''
-          export LOCALE_ARCHIVE_2_11=${pkgs.glibcLocales}/lib/locale/locale-archive
-          export LOCALE_ARCHIVE_2_27=${pkgs.glibcLocales}/lib/locale/locale-archive
-          export LOCALE_ARCHIVE=/usr/bin/locale
-        ''
-      else
-        ""
-  );
+  '' + pkgs.lib.optionalString pkgs.stdenv.isLinux ''
+      export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+  '';
 
   home.packages = with pkgs; [
     bandwhich
