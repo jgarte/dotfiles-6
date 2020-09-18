@@ -7,6 +7,7 @@ let
       start = [
         ale
         base16-vim
+        bufexplorer
         editorconfig-vim
         fzf-vim
         fzfWrapper
