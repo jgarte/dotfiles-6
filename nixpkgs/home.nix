@@ -225,6 +225,7 @@ rec {
     ncdu
     netcat
     nmap
+    dnsutils
     ormolu
     procs
     ripgrep
