@@ -207,7 +207,6 @@ rec {
   '';
 
   home.packages = with pkgs; [
-    bandwhich
     bash-completion
     bashInteractive
     cabal-install
