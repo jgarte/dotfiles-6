@@ -6,3 +6,4 @@ nohup.out
 npm-debug.log
 !.gitkeep
 .shell.nix
+.direnv
