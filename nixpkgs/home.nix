@@ -71,6 +71,11 @@ rec {
     terminal = "screen-256color";
   };
 
+  programs.direnv = {
+    enable = true;
+    enableNixDirenvIntegration = true;
+  };
+
   programs.alacritty = {
     enable = builtins.currentSystem == "x86_64-darwin";
     settings = {
@@ -207,7 +212,6 @@ rec {
     bashInteractive
     cabal-install
     coreutils
-    direnv
     entr
     exa
     fd
@@ -221,7 +225,6 @@ rec {
     ipcalc
     jq
     libossp_uuid
-    lorri
     lynx
     ncdu
     netcat
