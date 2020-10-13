@@ -211,6 +211,8 @@ rec {
     bashInteractive
     cabal-install
     coreutils
+    dnsutils
+    emv
     entr
     exa
     fd
@@ -228,7 +230,6 @@ rec {
     ncdu
     netcat
     nmap
-    dnsutils
     ormolu
     procs
     ripgrep
