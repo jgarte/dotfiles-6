@@ -235,6 +235,7 @@ rec {
     ripgrep
     rufo
     sd
+    tig
     tokei
     tree
     vim-with-packages
