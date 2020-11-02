@@ -14,21 +14,20 @@ $ ./install
 
 This has the effect of running the commands outlined in the next three steps.
 
-#### 1. [Nix](https://nixos.org/nix/)
+#### 1. Install [Nix](https://nixos.org/nix/)
 
 ```
 $ sh <(curl https://nixos.org/nix/install) --daemon
 $ source ~/.dotfiles/nixpkgs/config.sh
 ```
 
-#### 2. [Home Manager](https://github.com/rycee/home-manager)
+#### 2. Apply [Home Manager](https://github.com/rycee/home-manager) Configuration
 
 ```
-$ nix-shell -p coreutils --run 'ln -sfT ~/.dotfiles/nixpkgs ~/.config/nixpkgs'
-$ nix-shell '<home-manager>' -A install
+$ nix-shell --run "home-manager switch"
 ```
 
-#### 3. [Bash](https://www.gnu.org/software/bash/)
+#### 3. Change shell to [Bash](https://www.gnu.org/software/bash/)
 
 Set the Nix-installed Bash as the one for your user.
 
