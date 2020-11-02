@@ -56,9 +56,45 @@ rec {
     ./modules/firefox-with-desktop-entry.nix
   ];
 
-  programs.home-manager = {
+  home.username = builtins.getEnv "USER";
+  home.homeDirectory = builtins.getEnv "HOME";
+
+  home.stateVersion = "20.09";
+
+  programs.bash = {
     enable = true;
-    path = builtins.getEnv "HOME_MANAGER";
+    initExtra = ''
+      ${builtins.readFile ./programs/bash/base-16.sh}
+      ${builtins.readFile ./programs/bash/clipboard.sh}
+      ${builtins.readFile ./programs/bash/codecdpath.sh}
+      ${builtins.readFile ./programs/bash/completion.sh}
+      ${builtins.readFile ./programs/bash/direnv.sh}
+      ${builtins.readFile ./programs/bash/docker-compose.sh}
+      ${builtins.readFile ./programs/bash/editor.sh}
+      ${builtins.readFile ./programs/bash/fuzzy-cd.sh}
+      ${builtins.readFile ./programs/bash/git.sh}
+      ${builtins.readFile ./programs/bash/history.sh}
+      ${builtins.readFile ./programs/bash/ls.sh}
+      ${builtins.readFile ./programs/bash/nix-shell.sh}
+      ${builtins.readFile ./programs/bash/nix.sh}
+      ${builtins.readFile ./programs/bash/opts.sh}
+      ${builtins.readFile ./programs/bash/pager.sh}
+      ${builtins.readFile ./programs/bash/path.sh}
+      ${builtins.readFile ./programs/bash/preview-rg.sh}
+      ${builtins.readFile ./programs/bash/prompt.sh}
+      ${builtins.readFile ./programs/bash/reload.sh}
+      ${builtins.readFile ./programs/bash/rust.sh}
+      ${builtins.readFile ./programs/bash/title.sh}
+
+      if [ ! -z $BASE16_THEME ]; then
+        source ${builtins.fetchTarball {
+          url = "https://github.com/fnune/base16-fzf/archive/ef4c386689f18bdc754a830a8e66bc2d46d515ae.tar.gz";
+          sha256 = "1hcr9sq3bxnin2b1pn9dzw39ddxsx1a0fr075l62yn9203fvq0hq";
+        }}/bash/base16-$BASE16_THEME.config
+      fi
+    '' + pkgs.lib.optionalString pkgs.stdenv.isLinux ''
+        export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+    '';
   };
 
   programs.tmux = {
@@ -169,42 +205,6 @@ rec {
       sha256 = "1mz0arnnd715jl891yg8hjplkm4hgn7pxhwfva5lbda801nps2r7";
     }}/contrib/completion/git-completion.bash";
   };
-
-  home.file.".bashrc".text = ''
-    ${builtins.readFile ./programs/bash/base-16.sh}
-    ${builtins.readFile ./programs/bash/clipboard.sh}
-    ${builtins.readFile ./programs/bash/codecdpath.sh}
-    ${builtins.readFile ./programs/bash/completion.sh}
-    ${builtins.readFile ./programs/bash/direnv.sh}
-    ${builtins.readFile ./programs/bash/docker-compose.sh}
-    ${builtins.readFile ./programs/bash/editor.sh}
-    ${builtins.readFile ./programs/bash/fuzzy-cd.sh}
-    ${builtins.readFile ./programs/bash/git.sh}
-    ${builtins.readFile ./programs/bash/history.sh}
-    ${builtins.readFile ./programs/bash/ls.sh}
-    ${builtins.readFile ./programs/bash/nix-shell.sh}
-    ${builtins.readFile ./programs/bash/nix.sh}
-    ${builtins.readFile ./programs/bash/opts.sh}
-    ${builtins.readFile ./programs/bash/pager.sh}
-    ${builtins.readFile ./programs/bash/path.sh}
-    ${builtins.readFile ./programs/bash/preview-rg.sh}
-    ${builtins.readFile ./programs/bash/prompt.sh}
-    ${builtins.readFile ./programs/bash/reload.sh}
-    ${builtins.readFile ./programs/bash/rust.sh}
-    ${builtins.readFile ./programs/bash/title.sh}
-
-    if [ ! -z $BASE16_THEME ]; then
-      source ${builtins.fetchTarball {
-        url = "https://github.com/fnune/base16-fzf/archive/ef4c386689f18bdc754a830a8e66bc2d46d515ae.tar.gz";
-        sha256 = "1hcr9sq3bxnin2b1pn9dzw39ddxsx1a0fr075l62yn9203fvq0hq";
-      }}/bash/base16-$BASE16_THEME.config
-    fi
-
-    ${builtins.readFile ./config.sh}
-
-  '' + pkgs.lib.optionalString pkgs.stdenv.isLinux ''
-      export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
-  '';
 
   home.packages = with pkgs; [
     bash-completion

@@ -27,26 +27,6 @@ install_nix () {
   . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 }
 
-move_old () {
-  if [ -f $1 ]; then
-    echo "WARN: $1 found, moving to $1.old"
-
-    mv $1 $1.old
-  fi
-}
-
-install_home_manager () {
-  source $PWD/nixpkgs/config.sh
-
-  move_old $HOME/.bashrc
-  move_old $HOME/.gitconfig
-
-  mkdir -p ~/.config
-  nix-shell -p coreutils --run "ln -sfT $PWD/nixpkgs $HOME/.config/nixpkgs"
-
-  nix-shell '<home-manager>' -A install
-}
-
 change_shell () {
   sudo bash -c "echo $(which bash) >> /etc/shells"
   sudo chsh -s $(which bash) $(whoami)
@@ -60,13 +40,8 @@ else
   echo "Nix already installed, skipping"
 fi
 
-if ! [ -x "$(command -v home-manager)" ]; then
-  echo "Installing Home Manager"
-
-  install_home_manager
-else
-  echo "Home Manager already installed, skipping"
-fi
+echo "Applying Home Manager Configuration"
+nix-shell --run "home-manager switch -b bak"
 
 if ! [ $SHELL == $(which bash) ]; then
   echo "Changing shell to $(which bash)"
