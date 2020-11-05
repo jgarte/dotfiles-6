@@ -172,14 +172,14 @@ rec {
           HDMI-1 = {
             enable = true;
             mode = "2880x1620_30.00";
-            position = "1920x0";
+            position = "0x139";
             primary = true;
             rate = "30.00";
           };
           eDP-1 = {
             enable = true;
             mode = "1920x1080";
-            position = "0x1178";
+            position = "2880x0";
             rate = "59.93";
           };
         };
