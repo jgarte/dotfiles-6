@@ -13,7 +13,6 @@ let
         fzfWrapper
         nerdtree
         vim-abolish
-        vim-better-whitespace
         vim-commentary
         vim-gitgutter
         vim-grammarous
@@ -205,6 +204,15 @@ rec {
       sha256 = "1mz0arnnd715jl891yg8hjplkm4hgn7pxhwfva5lbda801nps2r7";
     }}/contrib/completion/git-completion.bash";
   };
+
+  home.file.".editorconfig".text = ''
+    root = true
+
+    [*]
+    end_of_line = lf
+    trim_trailing_whitespace = true
+    insert_final_newline = true
+  '';
 
   home.packages = with pkgs; [
     bash-completion

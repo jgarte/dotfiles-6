@@ -34,6 +34,9 @@ if has("autocmd")
   " Fold YAML Files
   autocmd FileType yaml setlocal foldmethod=indent
 
+  " Disable editor config when editing git commit messages
+  autocmd FileType gitcommit let b:EditorConfig_disable = 1
+
   augroup vimrcEx
     au!
 
@@ -47,12 +50,6 @@ if has("autocmd")
 
   augroup END
 endif
-
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
 
 " No Help, please
 nmap <F1> <Esc>
@@ -74,10 +71,6 @@ let mapleader = "\\"
 " ********************************
 " **** Plugin specific config ****
 " ********************************
-
-" Better whitespace
-let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
 
 " FZF
 nmap <C-P> :FZF<CR>
