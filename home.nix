@@ -12,6 +12,7 @@ let
         fzf-vim
         fzfWrapper
         nerdtree
+        repeat
         vim-abolish
         vim-commentary
         vim-gitgutter
