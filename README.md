@@ -18,10 +18,9 @@ This has the effect of running the commands outlined in the next three steps.
 
 ```
 $ sh <(curl https://nixos.org/nix/install) --daemon
-$ source ~/.dotfiles/nixpkgs/config.sh
 ```
 
-#### 2. Apply [Home Manager](https://github.com/rycee/home-manager) Configuration
+#### 2. Apply the [Home Manager](https://github.com/rycee/home-manager) configuration
 
 ```
 $ nix-shell --run "home-manager switch"
@@ -44,4 +43,12 @@ Set the color scheme.
 
 ```
 $ base16_tomorrow
+```
+
+## Update
+
+Run the following
+
+```
+$ nix-shell --run "niv update nixpkgs-unstable && home-manager switch"
 ```
