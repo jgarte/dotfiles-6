@@ -47,7 +47,13 @@ $ base16_tomorrow
 
 ## Update
 
-Run the following
+Run the script
+
+```
+$ ./update
+```
+
+Which has the effect of running the following
 
 ```
 $ nix-shell --run "niv update nixpkgs-unstable && home-manager switch"
