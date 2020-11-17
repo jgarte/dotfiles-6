@@ -122,6 +122,13 @@ rec {
         program = "${programs.tmux.package}/bin/tmux";
         args = [ "attach" ];
       };
+      window = {
+        decorations = "buttonless";
+        padding = {
+          x = 16;
+          y = 16;
+        };
+      };
       font = {
         size = 18;
         normal = {
