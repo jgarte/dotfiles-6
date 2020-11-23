@@ -9,6 +9,7 @@ let
         base16-vim
         bufexplorer
         editorconfig-vim
+        fugitive
         fzf-vim
         fzfWrapper
         nerdtree
