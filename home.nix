@@ -65,7 +65,7 @@ rec {
   programs.bash = {
     enable = true;
     sessionVariables = {
-      NIX_PATH = "nixpkgs=${(import ./nix/sources.nix)."nixpkgs-unstable"}";
+      NIX_PATH = "nixpkgs=${(import ./nix/sources.nix).nixpkgs}";
     };
     initExtra = ''
       ${builtins.readFile ./programs/bash/base-16.sh}
