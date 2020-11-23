@@ -260,7 +260,6 @@ rec {
     tree
     vim-with-packages
     vulnix
-    ytop
   ] ++ lib.optionals (builtins.currentSystem != "x86_64-darwin") [
     xclip
     xsel
