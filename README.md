@@ -45,7 +45,19 @@ Set the color scheme.
 $ base16_tomorrow
 ```
 
-## Update
+## Switching to a new config
+
+```
+$ ./switch
+```
+
+Which has the effect of running the following
+
+```
+$ nix-shell --run "home-manager switch"
+```
+
+## Updating the Nixpkgs version
 
 Run the script
 
@@ -56,5 +68,5 @@ $ ./update
 Which has the effect of running the following
 
 ```
-$ nix-shell --run "niv update nixpkgs-unstable && home-manager switch"
+$ nix-shell --run "niv update nixpkgs-unstable"
 ```
