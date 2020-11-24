@@ -255,6 +255,7 @@ rec {
     ripgrep
     rufo
     sd
+    solargraph
     tig
     tokei
     tree
