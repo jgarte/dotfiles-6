@@ -35,6 +35,19 @@ let
       source.sha256 = "0nwasskcm0nrf7f52019x4fvxa5zckj4fcvf4cdl0qflrcwb1l9f";
     }) {};
 
+  clone = { runtimeShell, writeScriptBin }:
+    writeScriptBin "clone" ''
+      #!${runtimeShell}
+
+      set -xeo pipefail
+
+      repo=$1
+      directory=$HOME/Code/$(dirname $repo | cut -d ':' -f 2)
+      name=$(basename $repo | cut -d '.' -f 1)
+      mkdir -p directory
+      git clone $repo $directory/$name
+    '';
+
   gifit = { runtimeShell, ffmpeg, writeScriptBin }:
     writeScriptBin "gifit" ''
       #!${runtimeShell}
@@ -46,6 +59,7 @@ let
     '';
 
   scripts = [
+    (pkgs.callPackage clone {})
     (pkgs.callPackage gifit {})
   ];
 in
