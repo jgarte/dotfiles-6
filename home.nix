@@ -1,5 +1,13 @@
 { pkgs, lib, config, ... }:
 let
+  sources = import ./nix/sources.nix;
+
+  ale = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    pname = "ale";
+    version = "2020-11-22";
+    src = sources.ale;
+    meta.homepage = "https://github.com/dense-analysis/ale/";
+  };
   vim-with-packages = pkgs.vim_configurable.customize {
     name = "vim";
     vimrcConfig.customRC = builtins.readFile ./programs/vim/vimrc;
@@ -79,7 +87,7 @@ rec {
   programs.bash = {
     enable = true;
     sessionVariables = {
-      NIX_PATH = "nixpkgs=${(import ./nix/sources.nix).nixpkgs}";
+      NIX_PATH = "nixpkgs=${sources.nixpkgs}";
     };
     initExtra = ''
       ${builtins.readFile ./programs/bash/base-16.sh}

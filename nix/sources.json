@@ -1,4 +1,16 @@
 {
+    "ale": {
+        "branch": "master",
+        "description": "Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support",
+        "homepage": "",
+        "owner": "dense-analysis",
+        "repo": "ale",
+        "rev": "681a6e371d02cce9c2414c19f5deeae61aa321fa",
+        "sha256": "07y7xj0p4dnn7qkjc9nvq6v222fw9gcclf7n9l9w7m021bb451xp",
+        "type": "tarball",
+        "url": "https://github.com/dense-analysis/ale/archive/681a6e371d02cce9c2414c19f5deeae61aa321fa.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix",
