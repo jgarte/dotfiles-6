@@ -79,7 +79,7 @@ nmap <C-P> :FZF<CR>
 let g:ale_linters = {
 \   'haskell': ['hlint'],
 \   'javascript': ['eslint'],
-\   'ruby': ['rubocop', 'solargraph'],
+\   'ruby': ['rubocop'],
 \}
 
 let g:ale_fixers = {
@@ -92,4 +92,3 @@ let g:ale_fixers = {
 
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
-let g:ale_popup_menu_enabled = 1
