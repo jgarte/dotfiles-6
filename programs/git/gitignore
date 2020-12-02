@@ -7,3 +7,4 @@ npm-debug.log
 !.gitkeep
 .shell.nix
 .direnv
+.nu-env
