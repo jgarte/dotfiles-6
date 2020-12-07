@@ -56,6 +56,55 @@ let
       git clone $repo $directory/$name
     '';
 
+  git-wip = { runtimeShell, writeScriptBin }:
+    writeScriptBin "git-wip" ''
+      #!${runtimeShell}
+
+      set -e
+
+      git add -A
+      git commit -m "[WIP]"
+    '';
+
+  git-unwip = { runtimeShell, writeScriptBin }:
+    writeScriptBin "git-unwip" ''
+      #!${runtimeShell}
+
+      set -e
+
+      last_commit_message=$(git log -n 1 --format=format:%s)
+
+      if [[ $last_commit_message = "[WIP]"* ]]; then
+        git reset HEAD~
+      else
+        echo "Last commit not a [WIP]: $last_commit_message" 1>&2
+        exit 1
+      fi
+    '';
+
+  git-fixup = { runtimeShell, writeScriptBin }:
+    writeScriptBin "git-fixup" ''
+      #!${runtimeShell}
+
+      set -eo pipefail
+
+      path=$1
+      last_commit_to_path=$(git log -n 1 --format=format:%H -- $path)
+
+      git add $path -p
+      git commit --fixup=$last_commit_to_path
+
+      status=$(git status --porcelain 2> /dev/null)
+
+      if [[ "$status" != "" ]]; then
+        git wip
+        git rebase --interactive --autosquash $last_commit_to_path~
+        git unwip
+      else
+        git rebase --interactive --autosquash $last_commit_to_path~
+      fi
+    '';
+
   gifit = { runtimeShell, ffmpeg, writeScriptBin }:
     writeScriptBin "gifit" ''
       #!${runtimeShell}
@@ -69,6 +118,9 @@ let
   scripts = [
     (pkgs.callPackage clone {})
     (pkgs.callPackage gifit {})
+    (pkgs.callPackage git-wip {})
+    (pkgs.callPackage git-unwip {})
+    (pkgs.callPackage git-fixup {})
   ];
 in
 rec {
