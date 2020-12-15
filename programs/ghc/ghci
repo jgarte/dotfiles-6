@@ -1,0 +1,6 @@
+:set -XDataKinds
+:set -XNoStarIsType
+:set -XTypeApplications
+:set -fprint-explicit-foralls
+:set prompt "> "
+:set prompt-cont "| "

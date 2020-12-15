@@ -302,6 +302,8 @@ rec {
     indent_size = 2
   '';
 
+  home.file.".ghci".text = builtins.readFile ./programs/ghc/ghci;
+
   home.packages = with pkgs; [
     bash-completion
     bashInteractive
