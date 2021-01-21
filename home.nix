@@ -35,6 +35,13 @@ let
     };
   };
 
+  catDir = dirName: pkgs.lib.pipe dirName [
+    builtins.readDir
+    (pkgs.lib.filterAttrs (_: value: value == "regular"))
+    (pkgs.lib.mapAttrsToList (key: _value: key))
+    (pkgs.lib.concatMapStrings (name: builtins.readFile (dirName + "/${name}")))
+  ];
+
   rufo = pkgs.callPackage ({ buildRubyGem, ruby }:
     buildRubyGem rec {
       inherit ruby;
@@ -142,27 +149,7 @@ rec {
       NIX_PATH = "nixpkgs=${sources.nixpkgs}";
     };
     initExtra = ''
-      ${builtins.readFile ./programs/bash/base-16.sh}
-      ${builtins.readFile ./programs/bash/clipboard.sh}
-      ${builtins.readFile ./programs/bash/codecdpath.sh}
-      ${builtins.readFile ./programs/bash/completion.sh}
-      ${builtins.readFile ./programs/bash/direnv.sh}
-      ${builtins.readFile ./programs/bash/docker-compose.sh}
-      ${builtins.readFile ./programs/bash/editor.sh}
-      ${builtins.readFile ./programs/bash/fuzzy-cd.sh}
-      ${builtins.readFile ./programs/bash/git.sh}
-      ${builtins.readFile ./programs/bash/history.sh}
-      ${builtins.readFile ./programs/bash/ls.sh}
-      ${builtins.readFile ./programs/bash/nix-shell.sh}
-      ${builtins.readFile ./programs/bash/nix.sh}
-      ${builtins.readFile ./programs/bash/opts.sh}
-      ${builtins.readFile ./programs/bash/pager.sh}
-      ${builtins.readFile ./programs/bash/path.sh}
-      ${builtins.readFile ./programs/bash/preview-rg.sh}
-      ${builtins.readFile ./programs/bash/prompt.sh}
-      ${builtins.readFile ./programs/bash/reload.sh}
-      ${builtins.readFile ./programs/bash/rust.sh}
-      ${builtins.readFile ./programs/bash/title.sh}
+      ${catDir ./programs/bash}
 
       if [ ! -z $BASE16_THEME ]; then
         source ${builtins.fetchTarball {
